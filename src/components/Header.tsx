@@ -24,7 +24,7 @@ export const Header = () => {
         transition={{ duration: 0.6 }}
         className="flex gap-12 text-sm font-semibold"
       >
-        {['Home', 'About', 'Work'].map((item, idx) => (
+        {['', '', ''].map((item, idx) => (
           <motion.a
             key={item}
             href="#"
