@@ -215,6 +215,7 @@ interface Milestone {
   date: string;
   description: string;
   side: 'left' | 'right';
+  link?: string;
 }
 
 const CareerTimeline: React.FC = () => {
@@ -230,22 +231,25 @@ const CareerTimeline: React.FC = () => {
       date: '2019 - 2023',
       description: '',
       side: 'left',
+      link: 'https://example.com/college',
     },
     {
       id: 2,
       title: 'Melody Mocktail',
       company: 'Melody Mocktail',
-   date: '2023-Present',
+      date: '2023-Present',
       description: 'Worked as a Next.js developer and built a website where users can find rental houses and travel companions.',
       side: 'right',
+      link: 'https://melodymocktail.com/',
     },
     {
       id: 3,
       title: 'Deals Mocktail',
       company: 'Melody Mocktail',
-   date: '2023-Present',
+      date: '2023-Present',
       description: 'Worked as a React.js developer and created an e-commerce website where users can find the best low-price products',
       side: 'left',
+      link: 'https://www.dealsmocktail.com/',
     },
     {
       id: 4,
@@ -254,6 +258,7 @@ const CareerTimeline: React.FC = () => {
       date: '2023-Present',
       description: 'Currently building a high-performance website using the latest Next.js 16 with advanced speed and load-time optimization.',
       side: 'right',
+      link: 'https://dev2.dealsmocktail.com/',
     },
     {
       id: 5,
@@ -262,6 +267,7 @@ const CareerTimeline: React.FC = () => {
       date: '2023',
       description: 'Created a kitchen tools e-commerce website with a smooth UI and easy product browsing.Enabled users to view, select, and purchase kitchen items seamlessly.',
       side: 'left',
+      link: 'https://www.limkar.co.in/',
     },
   ];
 
@@ -503,7 +509,10 @@ const CareerTimeline: React.FC = () => {
                     {/* Left Content */}
                     <div className="w-5/12 h-[42vh] flex items-center justify-end pr-10">
                       {isLeft && (
-                        <div className="w-[60vh] h-[38vh] bg-white rounded-2xl p-8 border border-gray-200 flex flex-col justify-center backdrop-blur-sm">
+                        <div
+                          onClick={() => milestone.link && window.open(milestone.link, '_blank')}
+                          className="w-[60vh] h-[38vh] bg-white rounded-2xl p-8 border border-gray-200 flex flex-col justify-center backdrop-blur-sm cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                        >
                           <div className="text-xs font-bold text-gray-500 mb-3 tracking-widest uppercase">
                             {milestone.date}
                           </div>
@@ -542,7 +551,10 @@ const CareerTimeline: React.FC = () => {
                     {/* Right Content */}
                     <div className="w-5/12 h-[42vh] flex items-center justify-start pl-10">
                       {!isLeft && (
-                        <div className="w-[60vh] h-[38vh] bg-white rounded-2xl p-8 border border-gray-200 flex flex-col justify-center backdrop-blur-sm">
+                        <div
+                          onClick={() => milestone.link && window.open(milestone.link, '_blank')}
+                          className="w-[60vh] h-[38vh] bg-white rounded-2xl p-8 border border-gray-200 flex flex-col justify-center backdrop-blur-sm cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                        >
                           <div className="text-xs font-bold text-gray-500 mb-3 tracking-widest uppercase">
                             {milestone.date}
                           </div>
@@ -585,7 +597,10 @@ const CareerTimeline: React.FC = () => {
 
                     {/* Mobile Content */}
                     <div className="w-full h-[22vh] lg:h-[28vh] flex items-center">
-                      <div className="w-full h-[22vh] lg:h-[28vh] bg-white rounded-xl p-5 border border-gray-200 flex flex-col justify-center backdrop-blur-sm">
+                      <div
+                        onClick={() => milestone.link && window.open(milestone.link, '_blank')}
+                        className="w-full h-[22vh] lg:h-[28vh] bg-white rounded-xl p-5 border border-gray-200 flex flex-col justify-center backdrop-blur-sm cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                      >
                         <div className="text-xs font-bold text-gray-500 mb-2 tracking-widest uppercase">
                           {milestone.date}
                         </div>
